@@ -79,7 +79,7 @@ flowchart LR
 | **Single DynamoDB table** | All access patterns are "get one item" or "query one partition by sort-key prefix" (issues, jobs, runs newest first), so one table covers eight entity types with no scans and no GSIs. It also avoids the shared account's table quota that blocked Assessment 1. | One table per entity: more resources, same queries. |
 | **Tool allow-lists per task** | The worker doing triage cannot open pull requests; the heartbeat cannot post comments. Limits the blast radius of a confused model. | Give every agent every tool. |
 | **Narrow write tools** | `propose_doc_update` only accepts documentation paths and always opens a PR, never pushes. `record_triage` cannot apply the `needs-investigation` label (that would loop). | Generic "write file" tool. |
-| **Nova Lite** | Low cost, available in-region in Sydney, supports tool use and image input (screenshots of bugs). | A larger model: better answers, but the assessment is about infrastructure. |
+| **Gemma 3 12B** | Low cost, available in-region in Sydney, supports tool use and image input (screenshots of bugs). | A larger model: better answers, but the assessment is about infrastructure. |
 | **Secrets Manager + Parameter Store** | Secrets (GitHub token, webhook secret, MCP key) are in one secret; non-secret settings (model ids, names, URLs) are one JSON parameter. Services only get the *names* in env vars. Changing the model is a parameter update, no redeploy. | Env vars: plaintext in the console, redeploy for every change. |
 
 ## 5. Data model (DynamoDB, PK/SK)

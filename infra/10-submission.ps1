@@ -7,7 +7,7 @@ function Add-Entry([string] $Type, [string] $Arn, [string] $Description) {
   if ($Arn) { $entries.Add(@{ type = $Type; arn = $Arn; description = $Description }) } else { Warn "Missing ARN for $Type ($Description)" }
 }
 
-Add-Entry "Bedrock model" $ChatModelId "Amazon Nova Lite foundation model that reasons, calls MCP tools and reads screenshots for the chat, worker and heartbeat agents."
+Add-Entry "Bedrock model" $ChatModelId "Gemma 3 12B IT foundation model that reasons, calls MCP tools and reads screenshots for the chat, worker and heartbeat agents."
 Add-Entry "Bedrock model" $EmbedModelId "Titan Text Embeddings V2 model that turns repository docs, code and issues into vectors for retrieval."
 Add-Entry "ECS service" $state.ecsServiceArn "Fargate service running the ACP chat agent container that serves the web UI and streams Bedrock answers over WebSocket."
 Add-Entry "ECS cluster" $state.ecsClusterArn "Cluster that hosts the chat agent Fargate service."

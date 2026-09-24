@@ -16,18 +16,18 @@ $GitHubOwner    = "Chun-Huan-Lee"
 $GitHubRepo     = "n12228591-custodian-sandbox"
 
 # Bedrock models (check the Canvas "AWS services available" page).
-$ChatModelId    = "amazon.nova-lite-v1:0"         # multimodal: can read screenshots
+$ChatModelId    = "google.gemma-3-12b-it"         # multimodal: can read screenshots
 $EmbedModelId   = "amazon.titan-embed-text-v2:0"
 $EmbedDims      = 1024
 
 # Pre-provisioned IAM roles (students cannot create roles).
 $LambdaRoleName       = "CAB432-Lambda-Role"
 # Leave empty to auto-detect from `aws iam list-roles`, or fill in from Canvas.
-$EcsExecutionRoleName = ""
-$EcsTaskRoleName      = ""
+$EcsExecutionRoleName = "Execution-Role-CAB432-ECS"
+$EcsTaskRoleName      = "Task-Role-CAB432-ECS"
 
 # Networking for the Fargate task. Leave empty to use the default VPC.
-$SubnetIds        = @()
+$SubnetIds        = @("subnet-075811427d5564cf9", "subnet-05a3b8177138c8b14", "subnet-04ca053dcbe5f49cc")
 $SecurityGroupId  = ""
 
 # Heartbeat schedule (EventBridge). rate(1 hour) is cheap; use rate(15 minutes) for the demo day.
