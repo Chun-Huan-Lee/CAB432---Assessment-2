@@ -1,0 +1,9 @@
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+npm-debug.log*
+infra/.state/
+infra/*.zip
+.env
+.env.local

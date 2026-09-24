@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Repository Custodian: an AI agent that looks after a GitHub repository" />
+    <title>Repository Custodian</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">CAB432 Assessment 2 · Track B</p>
+          <h1>Repository Custodian</h1>
+          <p class="subtitle">Ask about the repository, its issues and docs. Attach a screenshot to report a bug.</p>
+        </div>
+        <div class="header-actions">
+          <span id="user-label" class="user-label"></span>
+          <button id="sign-out" class="secondary" type="button">Sign out</button>
+          <button id="theme-toggle" class="secondary" type="button" data-dark-label="Dark mode" data-light-label="Light mode" aria-pressed="false">Dark mode</button>
+          <div id="connection-status" class="status status-idle" role="status">Disconnected</div>
+        </div>
+      </header>
+
+      <section id="login" class="login" hidden>
+        <form id="login-form" class="login-card">
+          <h2>Sign in</h2>
+          <p class="subtitle">Use your Repository Custodian account (Amazon Cognito).</p>
+          <label>Email <input id="login-email" type="email" autocomplete="username" required /></label>
+          <label>Password <input id="login-password" type="password" autocomplete="current-password" required /></label>
+          <button type="submit">Sign in</button>
+          <p id="login-error" class="login-error" role="alert"></p>
+        </form>
+      </section>
+
+      <section id="messages" class="messages" aria-live="polite" aria-label="Conversation">
+        <div class="empty-state">
+          <strong>Repository Custodian</strong>
+          <span>Try: "How do I run this project?", "Show me an overview of the backlog", or "Investigate issue #1".</span>
+        </div>
+      </section>
+
+      <form id="prompt-form" class="composer">
+        <label class="sr-only" for="prompt">Message</label>
+        <textarea id="prompt" rows="3" placeholder="Ask the custodian…" disabled></textarea>
+        <div id="attachment" class="attachment" hidden></div>
+        <input id="file-input" type="file" accept="image/png,image/jpeg,image/gif,image/webp" hidden />
+        <div class="composer-footer">
+          <span class="hint">Enter sends · Shift+Enter adds a new line</span>
+          <div class="composer-actions">
+            <button id="attach" type="button" class="secondary" disabled>Attach image</button>
+            <button id="cancel" type="button" class="secondary" disabled>Cancel</button>
+            <button id="send" type="submit" disabled>Send</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <script type="module" src="/web/main.ts"></script>
+  </body>
+</html>

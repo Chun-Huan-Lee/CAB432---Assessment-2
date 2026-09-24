@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Server crashes when POST /notes body is not valid JSON",
+    "body": "Sending `curl -X POST localhost:8080/notes -d 'not json'` kills the whole process with `SyntaxError: Unexpected token`. Expected a 400 response instead of a crash."
+  },
+  {
+    "title": "README says `npm run serve` but that script does not exist",
+    "body": "Following the Getting started section fails: `npm ERR! Missing script: \"serve\"`. Also the server did not start on port 3000 for me."
+  },
+  {
+    "title": "Add pagination to GET /notes",
+    "body": "With a few thousand notes the list endpoint returns everything at once. It would be nice to support `?limit=` and `?offset=`."
+  },
+  {
+    "title": "Notes with a whitespace-only title are accepted",
+    "body": "`{\"title\": \"   \"}` is accepted and creates a note with a blank title. Titles should be trimmed before validation."
+  },
+  {
+    "title": "How do I change where notes are stored?",
+    "body": "I set NOTES_FILE=/data/notes.json as the README says but notes still end up in ./notes.json. Am I doing something wrong?"
+  }
+]

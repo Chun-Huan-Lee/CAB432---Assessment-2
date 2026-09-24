@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+.git
+.gitignore
+npm-debug.log*
+*.tsbuildinfo
+infra/.state
+infra/*.zip
+sandbox-repo
